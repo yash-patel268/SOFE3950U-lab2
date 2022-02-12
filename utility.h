@@ -5,17 +5,17 @@
 
 extern int strTokenizer(char* str, char tokens[][BUFFER_LEN]);
 
+extern void getCurrentDirectory(char* pwd);
+
 extern void changeDirectory(char* pwd, char* path);
 
 extern void clearScreen(void);
-
-extern void getCurrentDirectory(char* pwd);
 
 extern void displayDirectory(char* path);
 
 extern void displayEnviron(char env[][BUFFER_LEN]);
 
-extern void echoShell(int argc, char *argc[]);
+extern void echoShell(char* pwd, int token_count, char tokens[][BUFFER_LEN]);
 
 extern void helpShell(void);
 
