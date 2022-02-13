@@ -101,6 +101,7 @@ void echoShell(char* pwd, int token_count, char tokens[][BUFFER_LEN]){
 	for(int i = 1; i < token_count; i++){
 		printf("%s ", tokens[i]);
 	}
+	printf("\n");
 }
 
 //defining helpShell function
