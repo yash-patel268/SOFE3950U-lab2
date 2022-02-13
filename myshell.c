@@ -33,8 +33,8 @@ int main(int argc, char *argv[]){
 
     printf("\n-------------------------------------------------------\n");
 	printf("\nWelcome to the shell!, type help to discover more commands\n\n");
-	get_currentDir(pwd);
-	get_currentDir(myshell);
+	getCurrentDirectory(pwd);
+	getCurrentDirectory(myshell);
 	strcpy(environ[0], "PWD: ");
 	strcpy(environ[1], "MYSHELL: ");
 	strcat(environ[0], pwd);
@@ -48,28 +48,29 @@ int main(int argc, char *argv[]){
 		}
 		buffer[index] = '\0';
 		
-		tokenCount = string_tokenizer(buffer, tokens);
+		tokenCount = strTokenizer(buffer, tokens);
 		strcpy(command, tokens[0]);
 
         if (strcmp(command, "cd") == 0){
-            change_dir(pwd, tokens[1]);
+            changeDirectory(pwd, tokens[1]);
             strcpy(environ[0], "PWD: ");
             strcat(environ[0], pwd);
         } else if (strcmp(command, "clear") == 0){
-            clear_screen();
+            clearScreen();
         } else if (strcmp(command, "help") == 0){
-            display_help();
+            helpShell();
         } else if (strcmp(command, "pause") == 0){
-            pause_shell();
+            pauseShell ();
         } else if (strcmp(command, "dir") == 0){
-            display_dir(tokens[1]);
+            displayDirectory(tokens[1]);
             printf("\n");
         } else if (strcmp(command, "echo") == 0){
             echoShell(pwd, tokenCount, tokens);
         } else if (strcmp(command, "environ") == 0){
-            display_environs(environ);
+            displayEnviron(environ);
         } else if (strcmp(tokens[0], "quit") == 0 || strcmp(tokens[0], "exit") == 0){
             quitShell();
+            return EXIT_SUCCESS;
         } else{
             printf("%s> ", pwd);
             printf("Unsupported command, use help to display the manual\n");

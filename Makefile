@@ -4,20 +4,20 @@ LFLAGS =
 LIBS = -lm
 SOURCES = myshell.c utility.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
-BIN = myshell
+EXE = myshell.exe
 .PHONY: clean help
  
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< 
 
-all : $(BIN)
+all : $(EXE)
 
-myshell: $(OBJECTS)
+myshell.exe: $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) $(LIBS) -o $@
 
 clean:
-	rm -f $(OBJECTS) $(BIN) *~
+	rm -f $(OBJECTS) $(EXE) *~
 
 help:
 	@echo "Valid targets:"

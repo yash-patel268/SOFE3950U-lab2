@@ -41,20 +41,21 @@ void clearScreen(void){
 }
 
 void displayDirectory(char* path){
-	DIR *dirptr;
-	struct dirent *item;
-
-	dirptr = opendir(".");
-
-	if (dirptr == NULL){
-		return 1;
+	struct dirent *de; 
+	DIR *dr = NULL;
+    if (strcmp(path, "") == 0){
+        dr = opendir(".");
 	}
-
-	while(( item = readdir(dirptr) )){
-		printf("%s\n", item->d_name);
+    else {	
+		dr = opendir(path); 
 	}
-	printf("\n");
-	closedir(dirptr);
+	if (dr == NULL) { 
+		printf("Could not find the directory specified!\n" );  
+	} 
+	while ((de = readdir(dr)) != NULL){ 
+		printf("%s\n", de->d_name); 
+	}
+    closedir(dr);
 }
 
 void displayEnviron(char env[][BUFFER_LEN]){
@@ -90,5 +91,4 @@ void pauseShell(void){
 
 void quitShell(void){
 	printf("Closing....\n");
-	return EXIT_SUCCESS;
 }
