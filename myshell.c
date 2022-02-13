@@ -52,9 +52,9 @@ int main(int argc, char *argv[]){
 		strcpy(command, tokens[0]);
 
         if (strcmp(command, "cd") == 0){
-        change_dir(pwd, tokens[1]);
-        strcpy(environ[0], "PWD: ");
-        strcat(environ[0], pwd);
+            change_dir(pwd, tokens[1]);
+            strcpy(environ[0], "PWD: ");
+            strcat(environ[0], pwd);
         } else if (strcmp(command, "clear") == 0){
             clear_screen();
         } else if (strcmp(command, "help") == 0){
@@ -65,16 +65,11 @@ int main(int argc, char *argv[]){
             display_dir(tokens[1]);
             printf("\n");
         } else if (strcmp(command, "echo") == 0){
-            printf("%s> ", pwd);
-            for (int i = 1; i < tokenCount; i++){
-                printf("%s ", tokens[i]);
-            }
-            printf("\n");
+            echoShell(pwd, tokenCount, tokens);
         } else if (strcmp(command, "environ") == 0){
             display_environs(environ);
         } else if (strcmp(tokens[0], "quit") == 0 || strcmp(tokens[0], "exit") == 0){
-            printf("Bye!\n");
-            return EXIT_SUCCESS;
+            quitShell();
         } else{
             printf("%s> ", pwd);
             printf("Unsupported command, use help to display the manual\n");
