@@ -75,7 +75,7 @@ int main(int argc, char *argv[]){
             strcpy(environ[0], "PWD: ");
             strcat(environ[0], pwd);
         //if command entered is clear
-        } else if (strcmp(command, "clear") == 0){
+        } else if (strcmp(command, "clr") == 0){
             clearScreen();
         //if command entered is help
         } else if (strcmp(command, "help") == 0){
