@@ -1,0 +1,7 @@
+[H[2J[3J
+-------------------------------------------------------
+
+Welcome to the shell!, type help to discover more commands
+
+/home/yp268/projects/SOFE3950U-lab2> /home/yp268/projects/SOFE3950U-lab2> working 
+/home/yp268/projects/SOFE3950U-lab2> 

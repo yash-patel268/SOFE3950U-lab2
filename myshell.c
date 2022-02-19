@@ -33,9 +33,10 @@ int main(int argc, char *argv[]){
     //initialize pointer to NULL as precaution
     FILE* fp = NULL;
 
-    //if the file is unable to open
+    //check if there was a file inputted in the commands
     if(argc > 1){
         fp = fopen(argv[1],"r");
+        //if the file is unable to open
 		if (fp == NULL){
 			printf("Error opening batch file...\n");
 			return EXIT_FAILURE;
@@ -82,7 +83,7 @@ int main(int argc, char *argv[]){
             helpShell();
         //if command entered is pause
         } else if (strcmp(command, "pause") == 0){
-            pauseShell ();
+            pauseShell();
         //if command entered is dir
         } else if (strcmp(command, "dir") == 0){
             displayDirectory(tokens[1]);
