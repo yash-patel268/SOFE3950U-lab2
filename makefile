@@ -4,7 +4,7 @@ LFLAGS =
 LIBS = -lm
 SOURCES = myshell.c utility.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
-EXE = myshell.exe
+EXE = myshell
 .PHONY: clean help
  
 
@@ -13,7 +13,7 @@ EXE = myshell.exe
 
 all : $(EXE)
 
-myshell.exe: $(OBJECTS)
+myshell: $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) $(LIBS) -o $@
 
 clean:
