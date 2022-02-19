@@ -22,6 +22,7 @@ This application a simple cli that is written in the c language which consists o
 ## Make File Commands
 - `make` or `make all` - to create all object files, as well as the executable file
 - `make clean` - to remove all object files and the executable file
+- `make help` -  to see what files can be removed
 
 ## Running Powershell Stand Alone
 To run the powershell alone and take command line, all that is required is to use the `./myshell`
